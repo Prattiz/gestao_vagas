@@ -34,11 +34,10 @@ public class CompanyEntity {
 
      @Length(min = 8, max = 100, message = "The password must contain between 8 and 100 characters")
     private String password;
-    
+
     private String description;
     private String website;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 }
