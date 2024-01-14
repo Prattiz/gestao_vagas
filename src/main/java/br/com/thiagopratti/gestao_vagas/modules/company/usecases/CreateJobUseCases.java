@@ -8,10 +8,9 @@ import br.com.thiagopratti.gestao_vagas.modules.company.repositories.JobRepos;
 
 @Service
 public class CreateJobUseCases {
+  private JobRepos jobRepos;
 
-    private JobRepos jobRepos;
-
-    public JobEntity execute(JobEntity jobEntity){
-        return this.jobRepos.save(jobEntity);
-    }
+  public JobEntity execute(JobEntity jobEntity) {
+    return this.jobRepos.save(jobEntity);
+  }
 }
