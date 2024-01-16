@@ -13,13 +13,13 @@ import br.com.thiagopratti.gestao_vagas.modules.company.usecases.AuthCompanyUseC
 
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/company")
 public class AuthCompanyController {
 
   @Autowired
   private AuthCompanyUseCase authCompanyUseCase;
 
-  @PostMapping("/company")
+  @PostMapping("/auth")
   public ResponseEntity<Object> create(@RequestBody AuthCompanyDTO authCompanyDTO) {
     try {
 
