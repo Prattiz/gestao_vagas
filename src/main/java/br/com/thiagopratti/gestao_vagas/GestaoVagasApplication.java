@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
+
 @SpringBootApplication
 @OpenAPIDefinition(
 	info = @Info(
@@ -15,6 +16,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 		version = "1"
 	)
 )
+
 public class GestaoVagasApplication {
 
 	public static void main(String[] args) {
