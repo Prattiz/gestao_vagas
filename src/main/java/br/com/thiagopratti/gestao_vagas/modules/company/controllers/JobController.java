@@ -31,9 +31,8 @@ public class JobController {
 
   @PostMapping("/")
   @PreAuthorize("hasRole('COMPANY')")
-  @Tag(name = "Vacancies", description = "Vacancies's Information")
+  @Tag(name = "Vacancies", description = "Vacancies's registration")
   @Operation(
-    summary = "Vacancy registration",
     description = "This function is responsable to register a vacancy in the company"
     )
 
