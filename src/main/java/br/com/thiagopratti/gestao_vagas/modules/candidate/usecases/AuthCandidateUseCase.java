@@ -15,9 +15,9 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
-import br.com.thiagopratti.gestao_vagas.modules.candidate.CandidateRepos;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.dto.AuthCandidateRequestDTO;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.dto.AuthCandidateResponseDTO;
+import br.com.thiagopratti.gestao_vagas.modules.candidate.repository.CandidateRepos;
 
 
 @Service

@@ -16,8 +16,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import br.com.thiagopratti.gestao_vagas.exceptions.JobNotFoundException;
 import br.com.thiagopratti.gestao_vagas.exceptions.UserNotFoundException;
-import br.com.thiagopratti.gestao_vagas.modules.candidate.CandidateEntity;
-import br.com.thiagopratti.gestao_vagas.modules.candidate.CandidateRepos;
+import br.com.thiagopratti.gestao_vagas.modules.candidate.entity.CandidateEntity;
+import br.com.thiagopratti.gestao_vagas.modules.candidate.repository.CandidateRepos;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.usecases.ApplyJobCandidateUseCase;
 import br.com.thiagopratti.gestao_vagas.modules.company.repositories.JobRepos;
 

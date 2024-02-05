@@ -2,13 +2,13 @@ package br.com.thiagopratti.gestao_vagas.modules.candidate.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-
-import br.com.thiagopratti.gestao_vagas.modules.candidate.CandidateEntity;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.dto.ProfileCandidateResponseDTO;
+import br.com.thiagopratti.gestao_vagas.modules.candidate.entity.CandidateEntity;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.usecases.CreateCandidateUseCase;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.usecases.ListAllJobsByFilterUseCase;
 import br.com.thiagopratti.gestao_vagas.modules.candidate.usecases.ProfileCandidateUseCase;
 import br.com.thiagopratti.gestao_vagas.modules.company.entities.JobEntity;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -19,10 +19,8 @@ import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
-
 import java.util.List;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

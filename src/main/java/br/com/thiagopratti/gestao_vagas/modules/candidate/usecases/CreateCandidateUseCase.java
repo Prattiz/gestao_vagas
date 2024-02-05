@@ -5,8 +5,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.thiagopratti.gestao_vagas.exceptions.UserFoundExceptions;
-import br.com.thiagopratti.gestao_vagas.modules.candidate.CandidateEntity;
-import br.com.thiagopratti.gestao_vagas.modules.candidate.CandidateRepos;
+import br.com.thiagopratti.gestao_vagas.modules.candidate.entity.CandidateEntity;
+import br.com.thiagopratti.gestao_vagas.modules.candidate.repository.CandidateRepos;
 
 
 @Service
