@@ -1,18 +1,21 @@
 package br.com.thiagopratti.gestao_vagas.modules.candidate.entity;
 
+
+import br.com.thiagopratti.gestao_vagas.modules.company.entities.JobEntity;
+
 import java.time.LocalDateTime;
 import java.util.UUID;
+import jakarta.persistence.GenerationType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import br.com.thiagopratti.gestao_vagas.modules.company.entities.JobEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,8 +26,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ApplyJobEntity {
 
+public class ApplyJobEntity {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -34,7 +38,7 @@ public class ApplyJobEntity {
     private CandidateEntity candidateEntity;
 
     @ManyToOne
-    @JoinColumn(name = "job_id")
+    @JoinColumn(name = "job_id", insertable = false, updatable = false)
     private JobEntity jobEntity;
 
     @Column(name = "candidate_id")
@@ -45,5 +49,4 @@ public class ApplyJobEntity {
 
     @CreationTimestamp
     private LocalDateTime createdAt;
-
 }
