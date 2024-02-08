@@ -2,7 +2,9 @@ package br.com.thiagopratti.gestao_vagas.modules.company.controllers;
 
 import java.util.UUID;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,30 +31,35 @@ public class JobController {
   @Autowired
   private CreateJobUseCases createJobUseCase;
 
+
   @PostMapping("/")
   @PreAuthorize("hasRole('COMPANY')")
   @Tag(name = "Vacancies", description = "Vacancies's registration")
-  @Operation(
-    description = "This function is responsable to register a vacancy in the company"
-    )
+  @Operation(description = "This function is responsable to register a vacancy in the company")
+  @ApiResponses(
+      @ApiResponse(responseCode = "200", content = {
+        @Content(schema = @Schema(implementation = JobEntity.class))
+      })
+  )
+  @SecurityRequirement(name = "jtw_auth")
 
-    @ApiResponses(
-        @ApiResponse(responseCode = "200", content = {
-          @Content(schema = @Schema(implementation = JobEntity.class))
-        })
-    )
+  public ResponseEntity<Object> create(@Valid @RequestBody CreateJobDTO createJobDTO, HttpServletRequest request) {
 
-    @SecurityRequirement(name = "jtw_auth")
-  public JobEntity create(@Valid @RequestBody CreateJobDTO createJobDTO, HttpServletRequest request) {
     var companyId = request.getAttribute("company_id");
 
-    var jobEntity = JobEntity.builder()
-        .benefits(createJobDTO.getBenefits())
-        .companyId(UUID.fromString(companyId.toString()))
-        .description(createJobDTO.getDescription())
-        .level(createJobDTO.getLevel())
-        .build();
+    try{
+      var jobEntity = JobEntity.builder()
+          .benefits(createJobDTO.getBenefits())
+          .companyId(UUID.fromString(companyId.toString()))
+          .description(createJobDTO.getDescription())
+          .level(createJobDTO.getLevel())
+          .build();
 
-    return createJobUseCase.execute(jobEntity);
+      var result = createJobUseCase.execute(jobEntity);
+      return ResponseEntity.ok().body(result);
+
+    }catch(Exception e){
+      return ResponseEntity.badRequest().body(e.getMessage());
+    }
   }
 }
