@@ -24,3 +24,4 @@ jobs:
               run: docker build -t pthiagobackend/gestao_vagas .
             - name: Publish image
               run: docker push pthiagobackend/gestao_vagas
+              
